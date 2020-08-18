@@ -33,10 +33,15 @@ pip install -r requirements.txt
 Nå kan du synce databasen, og kjøre:
 
 ```
-python allidrett/manage.py migrate
-python allidrett/manage.py runserver
+python manage.py migrate
+python manage.py runserver
 ```
 
 Nå kjører utviklingsserver lokalt, og du kan nå siden på http://localhost:8000
 
 Have fun :)
+
+## Building and running dockerfile
+
+    docker build --no-cache -t hammerstad/allidrett .
+    docker run --publish 8000:8000 hammerstad/allidrett
