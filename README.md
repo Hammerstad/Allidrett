@@ -1,5 +1,7 @@
 # Allidrett
 
+![Main](https://github.com/Hammerstad/Allidrett/workflows/Main/badge.svg)
+
 Påmeldingsside for allidrett til Nidelv IL, ettersom den eksisterende løsningen fungerer heller dårlig (ikke outsource ting til India...).
 
 Påtenkte features:
