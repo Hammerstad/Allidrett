@@ -19,3 +19,15 @@ jobs:
         password: ${{ secrets.DOCKER_PASSWORD }}
         repository: hammerstad/allidrett
         tags: latest
+
+    - name: Redeploy docker service on host using SSH
+      uses: appleboy/ssh-action@master
+      with:
+        host: ${{ secrets.DIGITALOCEAN_HOST }}
+        username: ${{ secrets.DIGITALOCEAN_USERNAME }}
+        key: ${{ secrets.DIGITALOCEAN_KEY }}
+        script: |
+          docker pull hammerstad/allidrett:latest
+          docker stop AllIdrett
+          docker system prune -f
+          docker run -d --name=AllIdrett hammerstad/allidrett:latest
