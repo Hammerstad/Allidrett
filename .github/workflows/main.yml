@@ -30,4 +30,4 @@ jobs:
           docker pull hammerstad/allidrett:latest
           docker stop AllIdrett
           docker system prune -f
-          docker run -d --name=AllIdrett hammerstad/allidrett:latest
+          docker run -d -p 8000:8000 --name=AllIdrett hammerstad/allidrett:latest

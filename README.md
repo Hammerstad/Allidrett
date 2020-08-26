@@ -46,4 +46,4 @@ Have fun :)
 ## Building and running dockerfile
 
     docker build --no-cache -t hammerstad/allidrett .
-    docker run --publish 8000:8000 hammerstad/allidrett
+    docker run -p 8000:8000 hammerstad/allidrett
