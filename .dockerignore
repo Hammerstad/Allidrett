@@ -137,3 +137,7 @@ dmypy.json
 # Cython debug symbols
 cython_debug/
 staticfiles/
+
+# Dockerignore should also ignore development settings
+# so that production settings are set by default
+allidrett/settings/development.py

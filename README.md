@@ -43,7 +43,7 @@ Nå kjører utviklingsserver lokalt, og du kan nå siden på http://localhost:80
 
 Have fun :)
 
-## Building and running dockerfile
+## Building and running dockerfile locally
 
-    docker build --no-cache -t hammerstad/allidrett .
+    docker build --no-cache --build-arg secret_key="abcdefg" -t hammerstad/allidrett .
     docker run -p 8000:8000 hammerstad/allidrett

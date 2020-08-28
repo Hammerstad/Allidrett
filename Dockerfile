@@ -1,6 +1,10 @@
 # pull official base image
 FROM python:3.8.3-alpine
 
+# set secret key
+ARG secret_key
+ENV SECRET_KEY=$secret_key
+
 # set work directory
 WORKDIR /allidrett
 
@@ -17,6 +21,7 @@ RUN pip install -r requirements.txt
 COPY . .
 
 RUN python manage.py migrate
+RUN python manage.py collectstatic --noinput
 RUN chmod +x ./scripts/start.sh
 EXPOSE 8000
 
