@@ -1,0 +1,48 @@
+{% load static %}
+
+<index>
+
+    <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" type="text/css" href="{% static 'style.css' %}">
+        <link rel="stylesheet" type="text/css" href="{% static 'bootstrap.min.css' %}">
+    </head>
+
+    <body>
+        <img src="{% static 'allidrett.jpg' %}" />
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <h1>
+                        Påmelding Nidelv Allidrett høsten 2020
+                    </h1>
+                    <form action="/" method="post">
+                        {% csrf_token %}
+                        {{ form.non_field_errors }}
+                        <div class="form-group">
+                            {{ form.name.errors }}
+                            <label for="id_name">Navn på barnet</label>
+                            {{ form.name }}
+                        </div>
+                        <div class="form-group">
+                            {{ form.year_of_birth.errors }}
+                            <label for="id_year_of_birth">Fødselsår på barnet:</label>
+                            {{ form.year_of_birth }}
+                        </div>
+                        <div class="form-group">
+                            {{ form.email.errors }}
+                            <label for="id_email">Epostadresse:</label>
+                            {{ form.email }}
+                        </div>
+                        <div class="form-group">
+                            {{ form.party.errors }}
+                            <label for="id_party">Parti:</label>
+                            {{ form.party }}
+                        </div>
+                        <p><input type="submit" class="btn btn-primary" value="Meld barnet på allidrett" /></p>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </body>
+</index>
