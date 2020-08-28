@@ -21,6 +21,7 @@ jobs:
         password: ${{ secrets.DOCKER_PASSWORD }}
         repository: hammerstad/allidrett
         tags: latest
+        build_args: secret_key=${SECRET_KEY}
 
     - name: Redeploy docker service on host using SSH
       uses: appleboy/ssh-action@master
