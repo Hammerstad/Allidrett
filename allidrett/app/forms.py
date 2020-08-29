@@ -1,4 +1,5 @@
 from django import forms
+from django.core.exceptions import ValidationError
 from django.db.models import Count
 from . import models
 
@@ -25,3 +26,17 @@ class RegistrationForm(forms.ModelForm):
             (party.start_time.strftime("%H:%M")
             ,party.end_time.strftime("%H:%M")
             ,party.max_registrations - models.Registration.objects.filter(party=party).count())
+
+    def save(self, commit=True):
+        m = super(RegistrationForm, self).save(commit=False)
+        
+        party = models.Party.objects.get(id=m.party.id)
+        registered_count = models.Registration.objects.filter(party=m.party).count()
+        
+        if(party.max_registrations <= registered_count):
+            raise ValidationError
+
+        if commit:
+            m.save()
+
+        return m

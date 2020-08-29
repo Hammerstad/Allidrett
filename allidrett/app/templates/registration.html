@@ -1,4 +1,5 @@
 {% load static %}
+{% load tags %}
 
 <index>
 
@@ -37,7 +38,16 @@
                         <div class="form-group">
                             {{ form.party.errors }}
                             <label for="id_party">Parti:</label>
-                            {{ form.party }}
+                            <select name="party" class="form-control" required="" id="id_party">
+                                <option value="" selected="">---------</option>
+                                {% for value, text in form.party.field.choices %}
+                                    {% if text|should_be_disabled %}
+                                        <option disabled value="{{ value }}">{{ text }}</option>
+                                    {% else %}
+                                        <option value="{{ value }}">{{ text }}</option>
+                                        {% endif %}
+                                {% endfor %}
+                            </select>
                         </div>
                         <p><input type="submit" class="btn btn-primary" value="Meld barnet på allidrett" /></p>
                     </form>

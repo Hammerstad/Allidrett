@@ -4,4 +4,4 @@ from allidrett.settings.base import *
 SECRET_KEY = 'lt*iuhi&z9a$is0*ojma0n!kg6sj4p@!!nklg#d^c_p@!u*+4h'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True

@@ -6,11 +6,11 @@ import datetime
 
 def create_initial_parties(apps, schema_editor):
     Party = apps.get_model('app', 'Party')
-    party1 = Party(max_registrations=15, start_time=datetime.time(17,15), end_time=datetime.time(18), day='Monday')
+    party1 = Party(max_registrations=15, start_time=datetime.time(17,15), end_time=datetime.time(18), day='Mandag')
     party1.save()
-    party2 = Party(max_registrations=15, start_time=datetime.time(17,15), end_time=datetime.time(18), day='Tuesday')
+    party2 = Party(max_registrations=15, start_time=datetime.time(17,15), end_time=datetime.time(18), day='Tirsdag')
     party2.save()
-    party3 = Party(max_registrations=15, start_time=datetime.time(18), end_time=datetime.time(18,45), day='Tuesday')
+    party3 = Party(max_registrations=15, start_time=datetime.time(18), end_time=datetime.time(18,45), day='Tirsdag')
     party3.save()
 
 class Migration(migrations.Migration):
