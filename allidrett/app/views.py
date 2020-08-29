@@ -11,7 +11,6 @@ def get_registration_form(request):
     if request.method == 'POST':
         form = RegistrationForm(request.POST)
         if form.is_valid():
-            print("FORM IS VALID")
             new_registration = form.save()
             return render(request, 'registration_receipt.html', {'registration': new_registration})
 
