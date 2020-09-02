@@ -3,16 +3,21 @@ FROM python:3.8.3-alpine
 
 # set secret key and postgres args
 ARG secret_key
-ARG postgres_username
-ARG postgres_password
-ARG postgres_host
 ENV SECRET_KEY=$secret_key
+
+ARG postgres_username
 ENV POSTGRES_USERNAME=$postgres_username
+
+ARG postgres_password
 ENV POSTGRES_PASSWORD=$postgres_password
+
+ARG postgres_host
 ENV POSTGRES_HOST=$postgres_host
 
 RUN echo $POSTGRES_HOST
+RUN echo $postgres_host
 RUN echo $POSTGRES_USERNAME
+RUN echo $postgres_username
 
 # set work directory
 WORKDIR /allidrett
