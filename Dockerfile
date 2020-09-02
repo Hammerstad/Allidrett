@@ -1,9 +1,15 @@
 # pull official base image
 FROM python:3.8.3-alpine
 
-# set secret key
+# set secret key and postgres args
 ARG secret_key
+ARG postgres_username
+ARG postgres_password
+ARG postgres_host
 ENV SECRET_KEY=$secret_key
+ENV POSTGRES_USERNAME=$postgres_username
+ENV POSTGRES_PASSWORD=$postgres_password
+ENV POSTGRES_HOST=$postgres_host
 
 # set work directory
 WORKDIR /allidrett
