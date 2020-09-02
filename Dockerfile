@@ -14,6 +14,12 @@ ENV POSTGRES_PASSWORD=$postgres_password
 ARG postgres_host
 ENV POSTGRES_HOST=$postgres_host
 
+ARG email_address
+ENV EMAIL_ADDRESS=$email_address
+
+ARG email_password
+ENV EMAIL_PASSWORD=$email_password
+
 # set work directory
 WORKDIR /allidrett
 

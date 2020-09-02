@@ -19,7 +19,7 @@ jobs:
         password: ${{ secrets.DOCKER_PASSWORD }}
         repository: hammerstad/allidrett
         tags: latest
-        build_args: secret_key=${{ secrets.DJANGO_SECRET_KEY }},postgres_username=${{ secrets.POSTGRES_USERNAME }},postgres_password=${{ secrets.POSTGRES_PASSWORD }},postgres_host=${{ secrets.POSTGRES_HOST }}
+        build_args: secret_key=${{ secrets.DJANGO_SECRET_KEY }},postgres_username=${{ secrets.POSTGRES_USERNAME }},postgres_password=${{ secrets.POSTGRES_PASSWORD }},postgres_host=${{ secrets.POSTGRES_HOST }},email_password={{ secrets.EMAIL_PASSWORD}},email_address={{ secrets.EMAIL_ADDRESS}}
 
     - name: Redeploy docker service on host using SSH
       uses: appleboy/ssh-action@master
