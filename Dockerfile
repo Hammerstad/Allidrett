@@ -11,8 +11,8 @@ ENV POSTGRES_USERNAME=$postgres_username
 ENV POSTGRES_PASSWORD=$postgres_password
 ENV POSTGRES_HOST=$postgres_host
 
-RUN echo ${POSTGRES_HOST}
-RUN echo ${POSTGRES_USERNAME}
+RUN echo $POSTGRES_HOST
+RUN echo $POSTGRES_USERNAME
 
 # set work directory
 WORKDIR /allidrett
