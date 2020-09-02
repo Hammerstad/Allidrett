@@ -45,5 +45,12 @@ Have fun :)
 
 ## Building and running dockerfile locally
 
-    docker build --no-cache --build-arg secret_key="abcdefg" -t hammerstad/allidrett .
+Example, paste correct values for credentials
+
+    docker build --no-cache \
+        --build-arg secret_key="abcdefghijklmnop" \
+        --build-arg postgres_username="user" \
+        --build-arg postgre_host="host" \
+        --build-arg postgres_password="password" \
+        -t hammerstad/allidrett .
     docker run -p 8000:8000 hammerstad/allidrett
