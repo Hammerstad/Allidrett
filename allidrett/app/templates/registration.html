@@ -39,7 +39,6 @@
                             {{ form.party.errors }}
                             <label for="id_party">Parti:</label>
                             <select name="party" class="form-control" required="" id="id_party">
-                                <option value="" selected="">---------</option>
                                 {% for value, text in form.party.field.choices %}
                                     {% if text|should_be_disabled %}
                                         <option disabled value="{{ value }}">{{ text }}</option>
