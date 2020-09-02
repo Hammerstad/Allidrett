@@ -14,17 +14,12 @@ jobs:
   
     - name: Build and push Docker images
       uses: docker/build-push-action@v1
-      env:
-        SECRET_KEY: ${{ secrets.DJANGO_SECRET_KEY }}
-        POSTGRES_USERNAME: ${{ secrets.POSTGRES_USERNAME }}
-        POSTGRES_PASSWORD: ${{ secrets.POSTGRES_PASSWORD }}
-        POSTGRES_HOST: ${{ secrets.POSTGRES_HOST }}
       with:
         username: ${{ secrets.DOCKER_USERNAME }}
         password: ${{ secrets.DOCKER_PASSWORD }}
         repository: hammerstad/allidrett
         tags: latest
-        build_args: secret_key=${SECRET_KEY},postgres_username=${{ secrets.POSTGRES_USERNAME }},postgres_password=${POSTGRES_PASSWORD},postgres_host=${POSTGRES_HOST}
+        build_args: secret_key=${{ secrets.DJANGO_SECRET_KEY }},postgres_username=${{ secrets.POSTGRES_USERNAME }},postgres_password=${{ secrets.POSTGRES_PASSWORD }},postgres_host=${{ secrets.POSTGRES_HOST }}
 
     - name: Redeploy docker service on host using SSH
       uses: appleboy/ssh-action@master
