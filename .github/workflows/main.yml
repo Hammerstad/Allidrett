@@ -24,11 +24,7 @@ jobs:
         password: ${{ secrets.DOCKER_PASSWORD }}
         repository: hammerstad/allidrett
         tags: latest
-        build_args: |
-          secret_key=${SECRET_KEY}
-          postgres_username=${POSTGRES_USERNAME}
-          postgres_password=${POSTGRES_PASSWORD}
-          postgres_host=${POSTGRES_HOST}
+        build_args: secret_key=${SECRET_KEY},postgres_username=${POSTGRES_USERNAME},postgres_password=${POSTGRES_PASSWORD},postgres_host=${POSTGRES_HOST}
 
     - name: Redeploy docker service on host using SSH
       uses: appleboy/ssh-action@master
