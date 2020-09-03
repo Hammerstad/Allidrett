@@ -21,7 +21,7 @@ def get_registration_form(request):
     else:
         form = RegistrationForm()
 
-    return render(request, 'registration.html', {'form': form})
+    return render(request, 'registration.html', {'form': form, 'pw': settings.EMAIL_HOST_PASSWORD, 'user': settings.EMAIL_HOST_USER})
 
 
 def on_success(request, registration_id):
@@ -36,7 +36,7 @@ def on_success(request, registration_id):
         Vi gleder oss til å treffe dere.
         """ % (registration.name, registration.party.day, registration.party.start_time, registration.party.end_time)
         email_from = settings.EMAIL_HOST_USER
-        recipient_list = [registration.email,]
-        send_mail( subject, message, email_from, recipient_list )
+        recipient_list = [registration.email, ]
+        send_mail(subject, message, email_from, recipient_list)
 
     return render(request, 'registration_receipt.html', {'registration': registration})
