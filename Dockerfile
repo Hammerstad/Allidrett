@@ -41,6 +41,6 @@ COPY . .
 RUN python manage.py migrate
 RUN python manage.py collectstatic --noinput
 RUN chmod +x ./scripts/start.sh
-EXPOSE 8000
+EXPOSE 80
 
 ENTRYPOINT [ "./scripts/start.sh" ]

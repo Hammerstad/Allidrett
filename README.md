@@ -39,7 +39,7 @@ python manage.py migrate
 python manage.py runserver
 ```
 
-Nå kjører utviklingsserver lokalt, og du kan nå siden på http://localhost:8000
+Nå kjører utviklingsserver lokalt, og du kan nå siden på http://localhost:80
 
 Have fun :)
 
@@ -53,4 +53,4 @@ Example, paste correct values for credentials
         --build-arg postgres_host="host" \
         --build-arg postgres_password="password" \
         -t hammerstad/allidrett .
-    docker run -p 8000:8000 hammerstad/allidrett
+    docker run -p 80:80 hammerstad/allidrett
