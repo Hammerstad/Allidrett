@@ -22,8 +22,9 @@ class RegistrationForm(forms.ModelForm):
         super(RegistrationForm, self).__init__(*args, **kwargs)
         for visible in self.visible_fields():
             visible.field.widget.attrs['class'] = 'form-control'
-        self.fields['party'].label_from_instance = lambda party: '%s-%s (%s ledige plasser)' % \
-            (party.start_time.strftime("%H:%M")
+        self.fields['party'].label_from_instance = lambda party: '%s %s-%s (%s ledige plasser)' % \
+            (party.day
+            ,party.start_time.strftime("%H:%M")
             ,party.end_time.strftime("%H:%M")
             ,party.max_registrations - models.Registration.objects.filter(party=party).count())
 

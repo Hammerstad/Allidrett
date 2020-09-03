@@ -30,7 +30,8 @@ def on_success(request, registration_id):
     if settings.DEBUG:
         email = EmailMessage(
             'Allidrett Nidelv IL Høst 2020 Registrering',
-            """Takk for at du har meldt barnet ditt %s på allidrett i regi av Nidelv Idrettslag. 
+            """
+            Takk for at du har meldt barnet ditt %s på allidrett i regi av Nidelv Idrettslag. 
             Dere er påmeldt partiet som går hver %s fra %s til %s. 
             
             Vi gleder oss til å treffe dere.
