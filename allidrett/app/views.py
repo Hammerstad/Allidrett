@@ -27,7 +27,7 @@ def get_registration_form(request):
 def on_success(request, registration_id):
     registration = Registration.objects.get(id=registration_id)
 
-    if settings.DEBUG:
+    if not settings.DEBUG:
         subject = 'Allidrett Nidelv IL Høst 2020 Registrering'
         message = """
         Takk for at du har meldt barnet ditt %s på allidrett i regi av Nidelv Idrettslag. 
