@@ -21,13 +21,13 @@ def get_registration_form(request):
     else:
         form = RegistrationForm()
 
-    return render(request, 'registration.html', {'form': form, 'pw': settings.EMAIL_HOST_PASSWORD, 'user': settings.EMAIL_HOST_USER})
+    return render(request, 'registration.html', {'form': form})
 
 
 def on_success(request, registration_id):
     registration = Registration.objects.get(id=registration_id)
 
-    if not settings.DEBUG:
+    if settings.DEBUG:
         subject = 'Allidrett Nidelv IL Høst 2020 Registrering'
         message = """
         Takk for at du har meldt barnet ditt %s på allidrett i regi av Nidelv Idrettslag. 
@@ -36,7 +36,7 @@ def on_success(request, registration_id):
         Vi gleder oss til å treffe dere.
         """ % (registration.name, registration.party.day, registration.party.start_time, registration.party.end_time)
         email_from = settings.EMAIL_HOST_USER
-        recipient_list = [registration.email, ]
-        send_mail(subject, message, email_from, recipient_list)
+        recipient_list = [registration.email,]
+        send_mail( subject, message, email_from, recipient_list )
 
     return render(request, 'registration_receipt.html', {'registration': registration})
